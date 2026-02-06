@@ -1,0 +1,6 @@
+10 -> Binary: 1010, Hexadecimal: A
+20 -> Binary: 10100, Hexadecimal: 14
+30 -> Binary: 11110, Hexadecimal: 1E
+40 -> Binary: 101000, Hexadecimal: 28
+20 -> Binary: 10100, Hexadecimal: 14
+Time: 0.0006649494171142578

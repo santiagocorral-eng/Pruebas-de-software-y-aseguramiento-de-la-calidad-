@@ -1,62 +1,77 @@
+"""
+compute_statistics.py
+
+Computes descriptive statistics (mean, median, variance, std dev) from a numeric file.
+Prints results on console and writes them to StatisticsResults.txt.
+Handles invalid data and measures execution time.
+"""
+
 import sys
 import time
 
 
-def read_numbers(file_path):
+def read_numbers(file_name):
+    """Read numbers from a file and skip invalid entries."""
     numbers = []
-    file = open(file_path, "r")
-    for line in file:
-        value = line.strip()
-        try:
-            numbers.append(float(value))
-        except ValueError:
-            print("Invalid data:", value)
-    file.close()
+    try:
+        with open(file_name, "r", encoding="utf-8") as file:
+            for line in file:
+                try:
+                    num = float(line.strip())
+                    numbers.append(num)
+                except ValueError:
+                    print(f"Invalid data: {line.strip()}")
+    except FileNotFoundError:
+        print(f"File not found: {file_name}")
     return numbers
 
 
 def mean(numbers):
-    Sum = 0
-    for n in numbers:
-        Sum += n
-    return Sum / len(numbers)
+    """Calculate mean of a list of numbers."""
+    return sum(numbers) / len(numbers) if numbers else 0
 
 
 def median(numbers):
-    numbers = sorted(numbers)
-    size = len(numbers)
-    mid = size // 2
-    if size % 2 == 0:
-        return (numbers[mid - 1] + numbers[mid]) / 2
-    return numbers[mid]
+    """Calculate median of a list of numbers."""
+    sorted_numbers = sorted(numbers)
+    n = len(sorted_numbers)
+    mid = n // 2
+    if n % 2 == 0:
+        return (sorted_numbers[mid - 1] + sorted_numbers[mid]) / 2
+    return sorted_numbers[mid]
 
 
 def main():
+    """Main function to execute statistics calculations."""
     if len(sys.argv) != 2:
-        print("Usage: python computeStatistics.py file.txt")
+        print("Usage: python compute_statistics.py file.txt")
         return
 
-    start = time.time()
-    nums = read_numbers(sys.argv[1])
+    start_time = time.time()
+    numbers = read_numbers(sys.argv[1])
 
-    avg = mean(nums)
-    med = median(nums)
+    avg = mean(numbers)
+    med = median(numbers)
 
-    variance = 0
-    for n in nums:
-        variance += (n - avg) ** 2
-    variance = variance / len(nums)
-    std = variance ** 0.5
+    variance = sum((x - avg) ** 2 for x in numbers) / len(numbers) if numbers else 0
+    std_dev = variance ** 0.5
+    elapsed = time.time() - start_time
 
-    elapsed = time.time() - start
-
+    # Print results
     print("Mean:", avg)
     print("Median:", med)
     print("Variance:", variance)
-    print("Std Dev:", std)
+    print("Std Dev:", std_dev)
     print("Time:", elapsed)
+
+    # Write results to file
+    with open("StatisticsResults.txt", "w", encoding="utf-8") as f:
+        f.write(f"Mean: {avg}\n")
+        f.write(f"Median: {med}\n")
+        f.write(f"Variance: {variance}\n")
+        f.write(f"Std Dev: {std_dev}\n")
+        f.write(f"Time: {elapsed}\n")
 
 
 if __name__ == "__main__":
     main()
-

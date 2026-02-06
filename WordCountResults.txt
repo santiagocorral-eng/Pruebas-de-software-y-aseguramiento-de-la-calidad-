@@ -1,0 +1,5 @@
+hello: 2
+world: 2
+pylint: 1
+test: 1
+Time elapsed: 0.0008 seconds
