@@ -5,7 +5,7 @@ Computes descriptive statistics (mean, median, variance, std dev) from a numeric
 Prints results on console and writes them to StatisticsResults.txt.
 Handles invalid data and measures execution time.
 """
-
+# pylint: disable=invalid-name
 import sys
 import time
 

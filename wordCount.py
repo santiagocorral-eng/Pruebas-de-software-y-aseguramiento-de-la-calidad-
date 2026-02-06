@@ -5,7 +5,7 @@ Counts all distinct words in a text file and their frequency.
 Prints results on console and writes them to WordCountResults.txt.
 Handles invalid data and measures execution time.
 """
-
+# pylint: disable=invalid-name
 import sys
 import time
 

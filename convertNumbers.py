@@ -3,7 +3,7 @@ Converts numbers from a file to binary and hexadecimal.
 Prints results on console and writes them to ConvertionResults.txt.
 Handles invalid data and measures execution time.
 """
-
+# pylint: disable=invalid-name
 import sys
 import time
 

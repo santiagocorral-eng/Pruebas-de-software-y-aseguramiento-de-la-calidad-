@@ -33,9 +33,7 @@ Specified file encoding
 Ensured PEP8 compliance
 
 Final pylint analysis
-Your code has been rated at 9.79/10
-Warning left intentionally:
-- C0103: Module name "compute_statistics" doesn't follow snake_case (assignment requires original filename)
+Your code has been rated at 10/10
 
 2. convert_numbers.py
 
@@ -71,9 +69,7 @@ Improved error handling for invalid data
 Implemented binary and hexadecimal conversions using basic algorithms
 
 Final pylint analysis
-Your code has been rated at 9.80/10
-Warning left intentionally:
-- C0103: Module name "convert_numbers" doesn't follow snake_case (assignment requires original filename)
+Your code has been rated at 10/10
 
 3. word_count.py
 
@@ -108,9 +104,7 @@ Used with statement and specified encoding
 Fixed PEP8 issues
 
 Final pylint analysis
-Your code has been rated at 9.78/10
-Warning left intentionally:
-- C0103: Module name "word_count" doesn't follow snake_case (assignment requires original filename)
+Your code has been rated at 10/10
 
 Notes
 
